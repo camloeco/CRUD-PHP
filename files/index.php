@@ -1,11 +1,15 @@
 <?php 
 
+    // HEADER
     include '../template/header.php';
 
-
-
+    // BD CONNECTION
     include_once '../model/connection.php';
+
+    // QUERY
     $sentencia = $bd->query('SELECT * FROM clientes');
+
+    // FETCH ARRAY
     $persona = $sentencia->fetchAll(PDO::FETCH_OBJ);
     // print_r($persona);
 
@@ -13,11 +17,13 @@
 
 <div class="container mt-5">
 
+    <!-- FILA 1 -->
     <div class="row justify-content-center">
 
+        <!-- COLUMNA 1 -->
         <div class="col-md-10">
 
-            <!-- ALERTA -->
+            <!-- ALERTS -->
             <?php
                 if (isset($_GET['mensaje']) && $_GET['mensaje'] == 'falta') {
             ?>
@@ -72,8 +78,9 @@
             <?php
                 }
             ?>
-            <!-- /ALERTA -->
+            <!-- /ALERTS -->
             
+            <!-- TABLE -->
             <div class="card">
 
                 <div class="card-header bg-primary">
@@ -119,14 +126,20 @@
                     
                 </div>
             </div>
+            <!-- /TABLE -->
         </div>
+        <!-- /COLUMNA 1 -->
     </div>
+    <!-- /FILA 1 -->
 
 
+    <!-- FILA 2 -->
     <div class="row justify-content-center">
-
+        
+        <!-- COLUMNA 1 -->
         <div class="col-md-10 mt-5 mb-5">
-
+            
+            <!-- FORMULARIO -->
             <div class="card">
 
                 <div class="card-header bg-warning">
@@ -186,8 +199,11 @@
 
                 </form>
             </div>
+            <!-- /FORMULARIO -->
         </div>
+        <!-- /COLUMNA 1 -->
     </div>
+    <!-- /FILA 2 -->
 </div>
 
 <?php include '../template/footer.php'; ?>
